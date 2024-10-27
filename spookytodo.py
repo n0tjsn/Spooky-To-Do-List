@@ -34,8 +34,10 @@ def addTask():
     usertask = task.get()
     task.delete(0,END)
     if usertask != "":
-        print(usertask)
-        tasklist.insert(END, usertask)
+            if random.randint(1,4) == 1:
+                tasklist.insert(END, "I'm evil...")
+            else:
+                tasklist.insert(END, usertask)
 
 def deleteTask():
     selected_tasks = tasklist.curselection()
