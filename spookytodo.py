@@ -16,19 +16,18 @@ label.pack(fill=BOTH)
 canvas = Canvas(todo, width=WIDTH, height=HEIGHT, background="brown")
 canvas.pack()
 
+if random.randint(1,4) == 1:
+    label = Label(todo,text="EVIL TODO LIST", font=('Arial', 35, 'bold'), fg='white', bg='black')
+    label.pack(fill=BOTH)
+else:
+    label = Label(todo,text="TODO LIST", font=('Arial', 35, 'bold'))
+    label.pack(fill=BOTH)
+label.pack(fill=BOTH)
 
-# if random.randint(1,4) == 1:
-#     label = Label(todo,text="EVIL TODO LIST", font=('Arial', 35, 'bold'), fg='white', bg='black')
-#     label.pack(fill=BOTH)
-# else:
-#     label = Label(todo,text="TODO LIST", font=('Arial', 35, 'bold'))
-#     label.pack(fill=BOTH)
-# label = Label(todo,text=datetime.datetime.now())
-# label.pack(fill=BOTH)
-
-icon = PhotoImage(file='hackUntlogo.png')
-todo.iconphoto(True,icon)
-todo.configure(bg="brown")
+# FIXME
+# icon = PhotoImage(file='hackUntlogo.png')
+# todo.iconphoto(True,icon)
+# todo.configure(bg="brown")
 
 #BUTTON FUNCTIONS
 def addTask():
@@ -85,12 +84,9 @@ def defocus(event):
         task.configure(fg='gray')
 
 def exit():    
-    if random.randint(1,4) == 1:
-        if tkinter.messagebox.askyesno("I wouldn't do that...", "Are you sure you want to do that?"):
+    if tkinter.messagebox.askyesno("I wouldn't do that...", "Are you sure you want to do that?"):
             if tkinter.messagebox.askokcancel("...", "..."): 
                     todo.destroy()
-    else:
-            todo.destroy()
 
 #TEXT BOXES
 task = Entry(todo, font=('Arial',15))
